@@ -61,6 +61,30 @@ This file is a running record of the key concepts, decisions and questions from 
 
 *First discussed: 2026-09-30*
 
+### Branches, `main` and pull requests
+
+**What they are:** `main` is the official version of a project. A branch is a separate working copy where changes are made without touching `main`. A pull request (PR) is a request to copy the changes from a branch into `main`. It shows exactly what changed and why, so the owner can review it and then press **Merge** to accept it, or ask for changes first.
+
+**Analogy:** `main` is the published copy of a book. A branch is an editor's working draft. A pull request is the editor handing over a marked-up draft that says "here is what I changed and why". Nothing reaches the published book until the author approves it.
+
+**Example:** Claude adds a sign-up page on a branch called `add-signup-page` and opens a pull request. The owner reads the summary, looks at the changed files on GitHub, and presses Merge. Only then does the sign-up page become part of `main`.
+
+**Why it matters:** Pushing straight to `main` is faster, but any mistake lands in the official version immediately. Pull requests add a checkpoint where every change is reviewed before it counts. Professional teams work this way, and for a learner each pull request is a small, readable lesson in what changed and why.
+
+*First discussed: 2026-09-30*
+
+### Archiving a repository
+
+**What it is:** Archiving is a GitHub setting that makes a repository read-only and marks it as retired. Nothing can be changed in it, but everything stays visible, and it can be unarchived at any time. It is found under the repository's **Settings**, at the bottom of the page.
+
+**Analogy:** Archiving is like moving an old project folder into a storage box in the loft. It is out of the way and cannot be scribbled on, but it is still there if needed. Deleting is like shredding it.
+
+**Example:** Once the learning log was copied into `claude-building`, the old `hello_app` repository no longer held anything needed, so it could be archived instead of deleted.
+
+**Why it matters:** Archiving is fully reversible and costs nothing, while deleting a repository is permanent. When a repository is retired, archiving is the safer default.
+
+*First discussed: 2026-09-30*
+
 ### Agent skills and the development lifecycle
 
 **What it is:** An agent skill is a written set of instructions that tells an AI coding agent (such as Claude) how to carry out a specific kind of work to a professional standard. Addy Osmani, a former Google engineer who now works at Anthropic on Claude Code, published a collection of these at [github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). His collection follows the six stages that experienced engineers move through when building software.
@@ -109,6 +133,8 @@ This file is a running record of the key concepts, decisions and questions from 
 | 2026-09-30 | Build the real project in a fresh repository. `hello_app` stays as a sandbox. | `hello_app` runs on Rails 4.2.2, which is no longer supported and has no security fixes. |
 | 2026-09-30 | Keep this learning log, updated by Claude as the conversation goes. | It gives a lasting, readable reference for concepts and decisions. |
 | 2026-09-30 | Create the new repository with a README, no `.gitignore` template, and no license. | The `.gitignore` depends on the tech stack, which is not chosen yet. A private project keeps all rights by default without a license. |
+| 2026-09-30 | The new repository is `habitus/claude-building`. It holds both the project code and this learning log. | Keeping the log beside the code keeps the reasoning and the work in one place. Each future project can live in its own folder. |
+| 2026-09-30 | Stop using `hello_app` and archive it on GitHub instead of deleting it. | Everything useful has been copied into `claude-building`. Archiving is reversible and deleting is permanent. |
 
 ---
 
@@ -120,6 +146,8 @@ A quick index of questions raised in conversation and where the answer lives.
 - **What is a short ADR?** See "ADR (Architecture Decision Record)".
 - **What does starting a fresh repository mean, and how is it done?** See "Starting a fresh repository".
 - **Should "Add .gitignore" and "Add license" be left off when creating the new repository?** Yes, for now. See ".gitignore file" and "Software license".
+- **Now that there is a new repository, do we stop using `hello_app`?** Yes. Archive it once the log has been copied across. See "Archiving a repository".
+- **What is the difference between pushing straight to `main` and using pull requests?** See "Branches, `main` and pull requests".
 
 ---
 
@@ -127,4 +155,4 @@ A quick index of questions raised in conversation and where the answer lives.
 
 - What is the project idea? (Needed to begin the Define stage.)
 - How much coding should the learner do by hand, compared with understanding the process while Claude writes most of the code?
-- What should the new repository be called?
+- Should Claude's changes reach `main` through pull requests (recommended) or by pushing straight to `main`?
