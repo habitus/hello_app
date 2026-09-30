@@ -37,6 +37,30 @@ This file is a running record of the key concepts, decisions and questions from 
 
 *First discussed: 2026-09-30*
 
+### .gitignore file
+
+**What it is:** A `.gitignore` is a small text file in a repository that lists files and folders Git should never save or upload. It usually covers secrets (such as passwords and API keys), temporary files, and large folders of downloaded libraries that can be recreated at any time.
+
+**Analogy:** A `.gitignore` is like a "do not pack" list for a house move. The removal team (Git) sees the list and leaves those items behind, so rubbish and valuables that should stay private never end up on the truck.
+
+**Example:** A JavaScript project usually lists `node_modules/` (thousands of downloaded library files) and `.env` (a file holding secret keys) in its `.gitignore`. Anyone who copies the project can download the libraries again, and the secrets stay on the owner's machine.
+
+**Why it matters:** Accidentally uploading a secret key to GitHub is one of the most common and costly beginner mistakes, because automated bots scan GitHub for leaked keys within minutes. The right `.gitignore` depends on the tech stack, so this project leaves the GitHub template set to "None" and adds a matching `.gitignore` once the stack is chosen.
+
+*First discussed: 2026-09-30*
+
+### Software license
+
+**What it is:** A software license is a file in a repository that states what other people are allowed to do with the code, such as copying, changing, or selling it. When a repository has no license, the author keeps all rights by default and nobody else may legally reuse the code.
+
+**Analogy:** A license is like the terms written on a recipe card you hand out. Without terms, the recipe is still yours and others may only look at it. With terms such as "free to cook and share, just credit me", you give others permission in advance.
+
+**Example:** The MIT License is a common, simple open source license. It lets anyone use and change the code for any purpose, as long as they keep the original copyright notice.
+
+**Why it matters:** For a private project, having no license is the right default because it keeps full control with the owner. If the project is later made public as open source, adding a license file takes one step.
+
+*First discussed: 2026-09-30*
+
 ### Agent skills and the development lifecycle
 
 **What it is:** An agent skill is a written set of instructions that tells an AI coding agent (such as Claude) how to carry out a specific kind of work to a professional standard. Addy Osmani, a former Google engineer who now works at Anthropic on Claude Code, published a collection of these at [github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). His collection follows the six stages that experienced engineers move through when building software.
@@ -84,6 +108,7 @@ This file is a running record of the key concepts, decisions and questions from 
 | 2026-09-30 | Use Addy Osmani's agent-skills lifecycle (Define, Plan, Build, Verify, Review, Ship) as the learning path. | It gives a beginner a clear, professional sequence to follow, and each stage produces something visible. |
 | 2026-09-30 | Build the real project in a fresh repository. `hello_app` stays as a sandbox. | `hello_app` runs on Rails 4.2.2, which is no longer supported and has no security fixes. |
 | 2026-09-30 | Keep this learning log, updated by Claude as the conversation goes. | It gives a lasting, readable reference for concepts and decisions. |
+| 2026-09-30 | Create the new repository with a README, no `.gitignore` template, and no license. | The `.gitignore` depends on the tech stack, which is not chosen yet. A private project keeps all rights by default without a license. |
 
 ---
 
@@ -94,6 +119,7 @@ A quick index of questions raised in conversation and where the answer lives.
 - **Could Addy Osmani's skills act as a signpost for building a production-grade idea while learning?** Yes, as long as each stage pauses to explain its reasoning and the learner makes the decisions. See "Agent skills and the development lifecycle".
 - **What is a short ADR?** See "ADR (Architecture Decision Record)".
 - **What does starting a fresh repository mean, and how is it done?** See "Starting a fresh repository".
+- **Should "Add .gitignore" and "Add license" be left off when creating the new repository?** Yes, for now. See ".gitignore file" and "Software license".
 
 ---
 
